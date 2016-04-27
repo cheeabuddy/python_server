@@ -11,13 +11,13 @@ s.bind((host, port))
 s.listen(1)
 conn, addr = s.accept()
 user = conn.recv(1024)
-print ("Connection from", addr, "Username: ",user)
+print ("Connection from: " + (str(addr[0])) + "\nUsername: " + (user))
 
 # Messaging loop
 while True:
     data = conn.recv(1024)
     if not data: break
-    print(user,": "+(data))
+    print((user)+": "+(data))
     response = raw_input("Server: ")
     if response == "exit":
         break
