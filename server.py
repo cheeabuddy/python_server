@@ -1,4 +1,5 @@
 import socket
+from serverfunctions import *
 
 host = '192.168.0.108'
 port = 50008
@@ -17,14 +18,10 @@ if psswd == 'pi':
 	print ("Connection from: " + (str(addr[0])) + "\nUsername: " + (user))
 
 	# Messaging loop
-	while True:
-    		data = conn.recv(1024)
-   		if not data: break
-    		print((user)+": "+(data))
-    		response = raw_input("Server: ")
-    		if response == "exit":
-        		break
-    		conn.sendall(response)
+	loop = True
+	while loop == True:
+		recieve_message(conn,user)
+		loop = send_message(conn)
 	conn.close()
 else:
 	print ("Connection refused")
