@@ -13,7 +13,7 @@ print("Connected to "+(host)+" on port "+str(port))
 s.sendall(user)
 
 # Initial Message
-initialMessage = raw_input("Username: ")
+initialMessage = raw_input("Initial Message: ")
 s.sendall(initialMessage) 
 
 # Messaging loop
